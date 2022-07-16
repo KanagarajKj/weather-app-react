@@ -1,0 +1,227 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
+
+*,*::after,*::before {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+img{
+    width: 100%;
+    height: auto;
+}
+
+html {
+    font-size: 16px;
+}
+
+:root {
+    --Bg-color:#edf2f4;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--Bg-color);
+    width: 100%;
+    height: 100vh;
+}
+
+.weather {
+    width: 90vw;
+    margin: auto;
+    height: 100vh;
+    border-radius: 20px;
+    position: relative;
+}
+
+.weather .title {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 500;
+    margin-top: 1rem;
+}
+
+.img_cta {
+    width: 100%;
+    height: 100%;
+    margin-top: 0.5rem;
+    border-radius: 30px;
+    background: url(https://images.unsplash.com/photo-1580917388462-2e09d69dff51?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80);
+    background-repeat: no-repeat;
+    object-fit: cover;
+    background-size: cover;
+}
+
+.img_cta img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 30px;
+    box-shadow: 3px 3px 5px rgba(0,0,0,0.5);
+    opacity: 0.8;
+}
+
+
+.weather .form {
+    position: absolute;
+    top: 10rem;
+    left: 10%;
+    text-align: center;
+    width: 80%;
+}
+
+.form_control input {
+    padding: 0.8rem 1rem;
+    width: 100%;
+    border: none;
+    outline: none;
+    margin-bottom: 0.5rem;
+    background-color: transparent;
+    border-bottom: 2px solid rgba(0,0,0,0.5);
+    font-size: 1rem;
+    letter-spacing: 1px;
+}
+
+
+::placeholder {
+    font-size: 1rem;
+    font-weight: 600;
+    opacity: 0.9;
+    color:rgba(0,0,0,0.8);
+    color: white;
+} 
+
+.getweather_btn {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    background-color: transparent;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-top: 0.5rem;
+    color: white;
+    letter-spacing: 1.5px;
+}
+
+.weather_report {
+    position: absolute;
+    top: 20rem;
+    left: 4rem;
+}
+
+.report_details {
+    display: flex;
+    flex-direction: column;
+}
+
+.temp {
+    font-size: 1rem;
+    color: white;
+}
+
+.temp h1 span {
+    font-size: 5rem;
+    color: white;
+}
+
+.pressure {
+    color: white;
+    font-size: 1rem;
+}
+
+.pressure span {
+    font-size: 2rem;
+}
+
+
+.wind {
+    color: white;
+    font-size: 1rem;
+}
+
+.wind span {
+    font-size: 2rem;
+}
+
+.prw {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.time  {
+    color: white;
+    margin-top: 0.5rem;
+    font-size: 1rem;
+}
+
+.time span {
+    font-size: 1.5rem;
+}
+
+
+@media screen and (min-width:768px) {
+    .weather {
+        width: 60vw;
+    }
+
+    .weather input {
+        font-size: 1.5rem;
+    }
+
+    .getweather_btn{
+        font-size: 1.5rem;
+    }
+
+    ::placeholder{
+        font-size: 1.5rem;
+    }
+
+    .weather_report {
+    position: absolute;
+    top: 25rem;
+    left: 5rem;
+}
+
+.temp {
+    font-size: 1rem;
+    color: white;
+}
+
+.temp h1 span {
+    font-size: 7rem;
+}
+
+.pressure {
+    font-size: 1.8rem;
+}
+
+.pressure span {
+    font-size: 3.5rem;
+}
+
+
+.wind {
+    font-size: 1.8rem;
+}
+
+.wind span {
+    font-size: 3.5rem;
+}
+
+.time  {
+    font-size: 1.8rem;
+}
+
+.time span {
+    font-size: 2.5rem;
+}
+}
+
+@media screen and (min-width:1440px) {
+    .weather {
+        width: 30vw;
+    }
+}
