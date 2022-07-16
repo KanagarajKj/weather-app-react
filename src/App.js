@@ -76,7 +76,7 @@ console.log(form)
         </button>
       </form>
 
-      {weather.data != undefined ? (
+      {weather.data !== undefined ? (
         <div>
           <DisplayWeather data={weather.data} photos={photos} />
         </div>
