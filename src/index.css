@@ -103,6 +103,7 @@ body {
     margin-top: 0.5rem;
     color: white;
     letter-spacing: 1.5px;
+    cursor: pointer;
 }
 
 .weather_report {

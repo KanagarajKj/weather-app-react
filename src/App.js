@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './index.css';
 import DisplayWeather from './DisplayWeather';
+import axios from 'axios';
 
 const App = () => {
   const [weather, setWeather] = useState([]);
@@ -10,7 +11,7 @@ const App = () => {
 console.log(form)
 
   const APIKEY = 'a388733a05ff27e506473e8f50c88aac';
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${form.city}&appid=${APIKEY}`;
+  const weatherurl = `https://api.openweathermap.org/data/2.5/weather?q=${form.city}&appid=${APIKEY}`;
 
   const APP_ID = '6WUd2h6zgltlWrvtUdNXN4qlUMYGZQG6u0vZ8nc3Puw';
 
@@ -19,28 +20,45 @@ console.log(form)
     if (form.city === '') {
       alert('Enter all the inputs');
     } else {
-      const data = await fetch(url)
-        .then((res) => res.json())
-        .then((data) => data);
+      const data = await axios(weatherurl)
+        .then((res) => res.data)
       setWeather({ data: data });
     }
     setForm({ city: '' });
 
-    fetch(
-      `https://api.unsplash.com/search/photos?query=${form.city}&client_id=${APP_ID}`
-    )
-      .then((res) => {
-        if (res.ok) {
-          return res.json();
-        } else {
-          throw new Error('You made a mistake');
-        }
-      })
-      .then((data) => {
-        setPhotos(data?.results[0]?.urls?.raw);
-      })
-      .catch((error) => console.log(error));
+    try {
+      axios(
+          `https://api.unsplash.com/search/photos?query=${form.city}&client_id=${APP_ID}`
+        )
+        .then((res) => {
+          if (res.ok) {
+            return res.data;
+          } else {
+            throw new Error('You made a mistake');
+          }
+        })
+        .then((data) => {
+          setPhotos(data?.results[0]?.urls?.raw);
+        });
+    } catch (error) {
+      console.log(error);
+    }
   };
+  //   fetch(
+  //     `https://api.unsplash.com/search/photos?query=${form.city}&client_id=${APP_ID}`
+  //   )
+  //     .then((res) => {
+  //       if (res.ok) {
+  //         return res.json();
+  //       } else {
+  //         throw new Error('You made a mistake');
+  //       }
+  //     })
+  //     .then((data) => {
+  //       setPhotos(data?.results[0]?.urls?.raw);
+  //     })
+  //     .catch((error) => console.log(error));
+  
 
   const changeHandler = (e) => {
     const key = e.target.name;
@@ -85,4 +103,4 @@ console.log(form)
   );
 };
 
-export default App;
+export default App
